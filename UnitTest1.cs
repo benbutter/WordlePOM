@@ -1,4 +1,5 @@
 using Microsoft.VisualStudio.TestTools.UnitTesting;
+using System.Threading;
 
 namespace WordlePOM
 {
@@ -16,7 +17,16 @@ namespace WordlePOM
 
             pom.CloseInstructions();
 
-            pom.inputLetter();
+            Thread.Sleep(10000);
+
+            pom.inputLetter("R");
+            pom.inputLetter("A");
+            pom.inputLetter("D");
+            pom.inputLetter("I");
+            pom.inputLetter("O");
+            pom.inputLetter("Enter");
+
+            pom.CheckElement();
         }
     }
 }

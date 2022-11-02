@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Text;
+using System.Threading;
 using OpenQA.Selenium;
 using OpenQA.Selenium.Chrome;
 
@@ -33,19 +34,40 @@ namespace WordlePOM
             element2.Click();
         }
 
-        public void inputLetter()
+        public void inputLetter(string input)
         {
-            //IWebElement element2 = driver.FindElement(By.XPath("//<tagName>[text()='Q']"));
-            //    IWebElement element2 = driver.FindElement(By.XPath("//input[@text='Q']"));
-            //IWebElement element2 = driver.FindElement(By.LinkText("q"));
-
-            //  IWebElement element2 = driver.FindElement(By.XPath(@"//*[@id="wordle - app - game"]/div[2]/div[1]/button[1]"));
-
-            string path = "//*[@id=\"wordle-app-game\"]/div[2]/div[1]/button[1]";
+           Thread.Sleep(100);
+            var xPathBuilder = new InputElementXPathBuilder();
+            string path = xPathBuilder.GetXpathForInputItem(input);
             IWebElement element2 = driver.FindElement(By.XPath(path));
-            //*[@id="wordle-app-game"]/div[2]/div[3]/button[1]
-            //*[@id="wordle-app-game"]/div[2]/div[2]/button[1]
             element2.Click();
+
+            
+        }
+
+        public void CheckElement()
+        {
+            const string letterNotInWord = "rgba(120, 124, 126, 1)";
+            const string letterInWordWrongPosition = "rgba(201, 180, 88, 1)";
+
+            string input = "I";
+            Thread.Sleep(100);
+            var xPathBuilder = new InputElementXPathBuilder();
+            string path = xPathBuilder.GetXpathForInputItem(input);
+            IWebElement element2 = driver.FindElement(By.XPath(path));
+
+           
+            input = "R";
+            Thread.Sleep(100);
+            path = xPathBuilder.GetXpathForInputItem(input);
+            IWebElement element3 = driver.FindElement(By.XPath(path));
+
+            string colour = element2.GetCssValue("background-color");
+
+            colour = element3.GetCssValue("background-color");
+
+
+
         }
     }
 }
