@@ -3,9 +3,11 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 16
 VisualStudioVersion = 16.0.31205.134
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WordlePOM", "WordlePOM.csproj", "{E44E3291-7C35-4062-AC38-96FD4FAA0206}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "WordlePOM", "WordlePOM.csproj", "{E44E3291-7C35-4062-AC38-96FD4FAA0206}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "POMTests", "..\POMTests\POMTests.csproj", "{0D14C652-36E0-4E54-9FE6-02D93C605EAD}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "POMTests", "..\POMTests\POMTests.csproj", "{0D14C652-36E0-4E54-9FE6-02D93C605EAD}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WordleConsoleApp", "..\WordleConsoleApp\WordleConsoleApp.csproj", "{CDD2B861-4969-4C0C-A62F-9407AF75877A}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -21,6 +23,10 @@ Global
 		{0D14C652-36E0-4E54-9FE6-02D93C605EAD}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{0D14C652-36E0-4E54-9FE6-02D93C605EAD}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{0D14C652-36E0-4E54-9FE6-02D93C605EAD}.Release|Any CPU.Build.0 = Release|Any CPU
+		{CDD2B861-4969-4C0C-A62F-9407AF75877A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{CDD2B861-4969-4C0C-A62F-9407AF75877A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{CDD2B861-4969-4C0C-A62F-9407AF75877A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{CDD2B861-4969-4C0C-A62F-9407AF75877A}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

@@ -19,14 +19,14 @@ namespace WordlePOM
 
             Thread.Sleep(10000);
 
-            pom.inputLetter("R");
             pom.inputLetter("A");
             pom.inputLetter("D");
-            pom.inputLetter("I");
             pom.inputLetter("O");
+            pom.inputLetter("R");
+            pom.inputLetter("E");
             pom.inputLetter("Enter");
 
-            pom.CheckElement();
+            pom.CheckLetter("A");
         }
     }
 }

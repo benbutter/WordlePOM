@@ -10,6 +10,10 @@ namespace WordlePOM
     public class POM
     {
         IWebDriver driver;
+        public const string letterNotInWord = "rgba(120, 124, 126, 1)";
+        public const string letterInWordWrongPosition = "rgba(201, 180, 88, 1)";
+        public const string letterIncORRECTPosition = "rgba(106, 170, 100, 1)";
+
         public POM()
         {
             driver = new ChromeDriver();
@@ -45,29 +49,14 @@ namespace WordlePOM
             
         }
 
-        public void CheckElement()
+        public string CheckLetter(string input)
         {
-            const string letterNotInWord = "rgba(120, 124, 126, 1)";
-            const string letterInWordWrongPosition = "rgba(201, 180, 88, 1)";
-
-            string input = "I";
+           
             Thread.Sleep(100);
             var xPathBuilder = new InputElementXPathBuilder();
             string path = xPathBuilder.GetXpathForInputItem(input);
-            IWebElement element2 = driver.FindElement(By.XPath(path));
-
-           
-            input = "R";
-            Thread.Sleep(100);
-            path = xPathBuilder.GetXpathForInputItem(input);
-            IWebElement element3 = driver.FindElement(By.XPath(path));
-
-            string colour = element2.GetCssValue("background-color");
-
-            colour = element3.GetCssValue("background-color");
-
-
-
+            IWebElement element = driver.FindElement(By.XPath(path));
+            return element.GetCssValue("background-color");
         }
     }
 }
