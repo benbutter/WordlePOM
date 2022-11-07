@@ -11,20 +11,21 @@ namespace WordlePOM
             int div;
             int button;
 
+            var upperCaseItemName =   itemName.ToUpper();
             div = 1;
 
-            button = GetButtonPositionOnTopLine(itemName);
+            button = GetButtonPositionOnTopLine(upperCaseItemName);
 
             if (button == 0)
             {
                 div = 2;
-                button = GetButtonPositionOnMidLine(itemName);
+                button = GetButtonPositionOnMidLine(upperCaseItemName);
             }
 
             if (button == 0)
             {
                 div = 3;
-                button = GetButtonPositionOnBottomLine(itemName);
+                button = GetButtonPositionOnBottomLine(upperCaseItemName);
             }
 
             return $"//*[@id=\"wordle-app-game\"]/div[2]/div[{div}]/button[{button}]";
@@ -44,7 +45,7 @@ namespace WordlePOM
 
         private int GetButtonPositionOnBottomLine(string itemName)
         {
-            string[] bottomLineArray = new string[] { "Enter", "Z", "X", "C", "V", "B", "N", "M", "Backspace" };
+            string[] bottomLineArray = new string[] { "ENTER", "Z", "X", "C", "V", "B", "N", "M", "Backspace" };
             return Array.IndexOf(bottomLineArray, itemName) + 1;
         }
     }

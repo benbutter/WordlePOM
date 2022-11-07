@@ -10,9 +10,9 @@ namespace WordlePOM
     public class POM
     {
         IWebDriver driver;
-        public const string letterNotInWord = "rgba(120, 124, 126, 1)";
-        public const string letterInWordWrongPosition = "rgba(201, 180, 88, 1)";
-        public const string letterIncORRECTPosition = "rgba(106, 170, 100, 1)";
+        public const string letterNotInWord = "120, 124, 126, 1";
+        public const string letterInWordWrongPosition = "201, 180, 88, 1";
+        public const string letterIncORRECTPosition = "106, 170, 100, 1";
 
         public POM()
         {
@@ -36,11 +36,12 @@ namespace WordlePOM
             IWebElement element2 = driver.FindElement(By.ClassName("game-icon"));
 
             element2.Click();
+            Thread.Sleep(10000);
         }
 
         public void inputLetter(string input)
         {
-           Thread.Sleep(100);
+           Thread.Sleep(500);
             var xPathBuilder = new InputElementXPathBuilder();
             string path = xPathBuilder.GetXpathForInputItem(input);
             IWebElement element2 = driver.FindElement(By.XPath(path));
@@ -52,11 +53,45 @@ namespace WordlePOM
         public string CheckLetter(string input)
         {
            
-            Thread.Sleep(100);
+            Thread.Sleep(500);
             var xPathBuilder = new InputElementXPathBuilder();
             string path = xPathBuilder.GetXpathForInputItem(input);
             IWebElement element = driver.FindElement(By.XPath(path));
-            return element.GetCssValue("background-color");
+            string colour = element.GetCssValue("background-color");
+
+            return ConvertResult(GetBetween(colour, "(", ")"));
+        }
+
+        public string GetBetween(string strSource, string strStart, string strEnd)
+        {
+            if (strSource.Contains(strStart) && strSource.Contains(strEnd))
+            {
+                int Start, End;
+                Start = strSource.IndexOf(strStart, 0) + strStart.Length;
+                End = strSource.IndexOf(strEnd, Start);
+                return strSource.Substring(Start, End - Start);
+            }
+
+            return "";
+        }
+
+        private string ConvertResult(string result)
+        {
+            if (result == POM.letterIncORRECTPosition)
+            {
+                return "Is in correct position";
+            }
+            else if (result == POM.letterInWordWrongPosition)
+            {
+                return "Is in word but in incorrect position";
+            }
+
+            else
+            {
+                return "Not in word";
+            }
         }
     }
+
+
 }
