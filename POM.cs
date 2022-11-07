@@ -71,7 +71,7 @@ namespace WordlePOM
                 End = strSource.IndexOf(strEnd, Start);
                 return strSource.Substring(Start, End - Start);
             }
-
+            
             return "";
         }
 
