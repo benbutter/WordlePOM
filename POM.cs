@@ -14,6 +14,10 @@ namespace WordlePOM
         public const string letterInWordWrongPosition = "201, 180, 88, 1";
         public const string letterIncORRECTPosition = "106, 170, 100, 1";
 
+        public const string resultCorrectPosition = "Is in correct position";
+        public const string resultIncorrectPosition = "Is in word but in incorrect position";
+        private const string resultNotInWord = "Not in word";
+
         public POM()
         {
             driver = new ChromeDriver();
@@ -79,16 +83,16 @@ namespace WordlePOM
         {
             if (result == POM.letterIncORRECTPosition)
             {
-                return "Is in correct position";
+                return resultCorrectPosition;
             }
             else if (result == POM.letterInWordWrongPosition)
             {
-                return "Is in word but in incorrect position";
+                return resultIncorrectPosition;
             }
 
             else
             {
-                return "Not in word";
+                return V;
             }
         }
     }
