@@ -16,7 +16,7 @@ namespace WordlePOM
 
         public const string resultCorrectPosition = "Is in correct position";
         public const string resultIncorrectPosition = "Is in word but in incorrect position";
-        private const string resultNotInWord = "Not in word";
+        public const string resultNotInWord = "Not in word";
 
         public POM()
         {
@@ -92,7 +92,7 @@ namespace WordlePOM
 
             else
             {
-                return V;
+                return resultNotInWord;
             }
         }
     }
